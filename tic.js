@@ -45,7 +45,8 @@ function vider(){
   }
 
 //! jeu //
-
+akyltour.textContent=`C'est au tour du joueur ${joueur}`
+akyltour.style="color:rgb(153, 0, 61)"
 table.addEventListener("click", function (evt) {
       let coche = evt.target;
       console.log(coche)
@@ -61,6 +62,9 @@ table.addEventListener("click", function (evt) {
         coche.classList.add("bleu")
         joueur=1}
     akyltour.textContent=`C'est au tour du joueur ${joueur}`
+    if(joueur==1){
+        akyltour.style="color:rgb(153, 0, 61)"}
+    else{akyltour.style="color:Teal"}
        
     
     if(casea1.className=="th rouge"&&casea2.className=="th rouge"&&casea3.className=="th rouge"
@@ -91,13 +95,20 @@ table.addEventListener("click", function (evt) {
         result.textContent="Victoire des rouges"
         result.style="color:rgb(153, 0, 61)"
         setTimeout(recharger, 4000);
+        akyltour.textContent=""
         
     }
     if(fin==2){
         result.textContent="Victoire des bleus"
         result.style="color:Teal"
+        akyltour.textContent=""
         setTimeout(recharger, 4000);
+
         
+    }
+    if(casea1.className!="th"&&casea2.className!="th"&&casea3.className!="th"&&caseb1.className!="th"&&caseb2.className!="th"&&caseb3.className!="th"&&casec1.className!="th"&&casec2.className!="th"&&casec3.className!="th"){
+        result.textContent="Egalité"
+        setTimeout(recharger, 5000)
     }
 })
 
